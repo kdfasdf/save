@@ -39,13 +39,13 @@
 	<select id="postList" resultType="jobPost">
 		SELECT POST_NO, COMPANY, POSITION, QUALIFY, EMPLOY_TYPE, REGI_DT 
 		FROM NOTICE_post, COMPANY
-		WHERE NOTICE_post.CO_ID = COMPANY.CO_ID; 
+		WHERE NOTICE_POST.CO_ID = COMPANY.CO_ID; 
 	</select>
 	<!--특정 회사의 채용공고 -->	
 	<select id="compostList" parameterType="String" resultType="jobPost">
 		SELECT POST_NO,COMPANY, POSITION, QUALIFY, EMPLOY_TYPE, REGI_DT 
-		FROM NOTICE_post,COMPANY
-		WHERE notice_post.CO_ID=#{co_ID} and COMPANy.CO_ID=#{co_ID}; 	
+		FROM NOTICE_POST,COMPANY
+		WHERE NOTICE_POST.CO_ID=#{co_ID} and COMPANY.CO_ID=#{co_ID}; 	
 	</select>
 	<!-- 게시글 수정 -->
 	<update id="modifyPos" parameterType="modify">
@@ -74,8 +74,8 @@
 	<!-- 게시판 보기 -->
 	<select id="getDetail" parameterType="int" resultType="jobDetail">
 		SELECT *
-		FROM notice_post
-		WHERE #{post_NO}=notice_post.POST_NO; 
+		FROM NOTICE_POST
+		WHERE #{post_NO}=NOTICE_POST.POST_NO; 
 	</select>
 
 	<!-- 기업회원 가입 -->
