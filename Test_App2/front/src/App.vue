@@ -116,9 +116,6 @@ export default{
         })
     }
   },
-  mounted(){
-    this.checkSession();
-  },
   updated(){
     this.checkSession();
     this.checkUserCode();
