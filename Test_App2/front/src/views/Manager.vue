@@ -1,6 +1,6 @@
 <template>
     <div class="Manager-log">
-      <b-form @submit="Manager">
+      <b-form>
         <b-card title="관리자 로그인">
           <!-- ID -->
           <b-form-group label="ID" label-for="input-id">
@@ -24,7 +24,7 @@
             ></b-form-input>
           </b-form-group>
   
-          <b-button type="submit" variant="primary"> 로그인 </b-button>
+          <b-button type="button" variant="primary"  @click="Manager"> 로그인 </b-button>
         </b-card>
       </b-form>
     </div>

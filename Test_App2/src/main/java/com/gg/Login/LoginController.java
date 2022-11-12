@@ -63,13 +63,20 @@ public class LoginController {
 
 	// 로그인 유저코드 검사
 	@PostMapping("/check-usercode")
-	public boolean isCompUser(HttpServletRequest request) {
+	public int isUser(HttpServletRequest request) {
 
 		HttpSession session = request.getSession(false);
 		if (session != null) {
-			System.out.println(session.getAttribute("usercode").toString());
-			return session.getAttribute("usercode").toString().equals("1");
+			// System.out.println(session.getAttribute("usercode").toString());
+			if (session.getAttribute("usercode").toString().equals("1")) {// comp
+				return 1;
+			} else if (session.getAttribute("usercode").toString().equals("2")) {// manager
+				return 2;
+			} else if (session.getAttribute("usercode").toString().equals("0")) {// indv
+				return 0;
+			}
+
 		}
-		return false;
+		return -1;
 	}
 }

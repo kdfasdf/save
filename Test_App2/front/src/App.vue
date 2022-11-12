@@ -22,7 +22,7 @@
               <b-nav-item href="/#/login" style="float: left;">Login</b-nav-item>
               <b-nav-item href="/#/join" style="float: right;">Join</b-nav-item>
             </div>
-            <div v-if="this.usercode == 'zxc'">
+            <div v-show="user_code == 'zxc'">
               <b-nav-item href="/#/Manager-Progress" style="float: right;">진행상황</b-nav-item>
             </div>
         
@@ -73,11 +73,14 @@ export default{
         .post("/check-usercode")
         .then(response=>{
           console.log(response.data);
-          if(response.data){
-            this.user_code = 'zxc'
+          if(response.data==2){
+            this.user_code = 'zxc';
           }
-          else{
+          else if (response.data==1){
             this.user_code = 'asd';
+          }
+          else if (response.data==0){
+            this.user_code = 'qwe';
           }
         })
         .catch(e=>{
